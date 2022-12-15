@@ -1,0 +1,13 @@
+{
+  "name": "net.tnrd.package",
+  "version": "1.0.0",
+  "displayName": "Package Name",
+  "description": "Package Description",
+  "unity": "2019.1",
+ "keywords": [ ],
+  "author": {
+    "name": "TNRD",
+    "url": "https://www.tnrd.net"
+  },
+  "dependencies": {}
+}
