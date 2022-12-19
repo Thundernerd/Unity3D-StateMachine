@@ -9,7 +9,9 @@ using Zenject;
 
 namespace <#= Namespace #>.Installers
 {
-    [CreateAssetMenu(menuName = "State Machine Installers/<#= FullStateMachineName #>")]
+    [CreateAssetMenu(
+        menuName = "State Machine Installers/<#= UnityEditor.ObjectNames.NicifyVariableName(FullStateMachineName) #>",
+        fileName = "<#= UnityEditor.ObjectNames.NicifyVariableName(FullStateMachineName) #> Installer")]
     public sealed class <#= FullStateMachineName #>Installer : ScriptableObjectInstaller
     {
         /// <inheritdoc />

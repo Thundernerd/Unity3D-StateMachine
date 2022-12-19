@@ -49,58 +49,65 @@ namespace TNRD.StateManagement.Templates
             
             #line default
             #line hidden
-            this.Write(".Installers\r\n{\r\n    [CreateAssetMenu(menuName = \"State Machine Installers/");
+            this.Write(".Installers\r\n{\r\n    [CreateAssetMenu(\r\n        menuName = \"State Machine Installers/");
             
-            #line 12 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\ZenjectStateMachineInstallerTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(FullStateMachineName));
+            #line 13 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\ZenjectStateMachineInstallerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(UnityEditor.ObjectNames.NicifyVariableName(FullStateMachineName)));
             
             #line default
             #line hidden
-            this.Write("\")]\r\n    public sealed class ");
+            this.Write("\",\r\n        fileName = \"");
             
-            #line 13 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\ZenjectStateMachineInstallerTemplate.tt"
+            #line 14 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\ZenjectStateMachineInstallerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(UnityEditor.ObjectNames.NicifyVariableName(FullStateMachineName)));
+            
+            #line default
+            #line hidden
+            this.Write(" Installer\")]\r\n    public sealed class ");
+            
+            #line 15 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\ZenjectStateMachineInstallerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(FullStateMachineName));
             
             #line default
             #line hidden
             this.Write("Installer : ScriptableObjectInstaller\r\n    {\r\n        /// <inheritdoc />\r\n        public sealed override void InstallBindings()\r\n        {\r\n            Container.BindInterfacesAndSelfTo<");
             
-            #line 18 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\ZenjectStateMachineInstallerTemplate.tt"
+            #line 20 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\ZenjectStateMachineInstallerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(FullStateMachineName));
             
             #line default
             #line hidden
             this.Write(">()\r\n                .AsSingle()\r\n                .NonLazy();\r\n\r\n            Container.Bind<");
             
-            #line 22 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\ZenjectStateMachineInstallerTemplate.tt"
+            #line 24 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\ZenjectStateMachineInstallerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(SubContainerManagerName));
             
             #line default
             #line hidden
             this.Write(">()\r\n                .AsSingle();\r\n\r\n            Container.BindInterfacesAndSelfTo<");
             
-            #line 25 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\ZenjectStateMachineInstallerTemplate.tt"
+            #line 27 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\ZenjectStateMachineInstallerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(FullStateMachineName));
             
             #line default
             #line hidden
             this.Write("Initializer>()\r\n                .AsSingle();\r\n\r\n            Container.BindInterfacesAndSelfTo<");
             
-            #line 28 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\ZenjectStateMachineInstallerTemplate.tt"
+            #line 30 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\ZenjectStateMachineInstallerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(UpdateProviderName));
             
             #line default
             #line hidden
             this.Write(">()\r\n                .AsSingle();\r\n\r\n            Container.BindInterfacesAndSelfTo<");
             
-            #line 31 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\ZenjectStateMachineInstallerTemplate.tt"
+            #line 33 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\ZenjectStateMachineInstallerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(StateFactoryName));
             
             #line default
             #line hidden
             this.Write(">()\r\n                .AsSingle();\r\n\r\n            Container.BindInterfacesAndSelfTo<");
             
-            #line 34 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\ZenjectStateMachineInstallerTemplate.tt"
+            #line 36 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\ZenjectStateMachineInstallerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TransitionFactoryName));
             
             #line default

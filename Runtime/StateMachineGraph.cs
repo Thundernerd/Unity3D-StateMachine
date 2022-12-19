@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TNRD.StateManagement
 {
-    [CreateAssetMenu]
+    [CreateAssetMenu(fileName = "State Machine Graph")]
     public partial class StateMachineGraph : SerializedScriptableObject
     {
         [SerializeField] private string stateMachineName;
