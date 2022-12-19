@@ -1,0 +1,10 @@
+﻿<#@ template language="C#" #>
+<#@ include file="Includes.ttinclude"#>
+using TNRD.StateManagement.Contracts;
+
+namespace <#= Namespace #>.Contracts
+{
+    public interface <#= StateMachineInterfaceName #> : IStateMachine
+    {
+    }
+}

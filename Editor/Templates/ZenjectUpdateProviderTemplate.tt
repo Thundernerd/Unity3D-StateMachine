@@ -1,0 +1,53 @@
+﻿<#@ template language="C#" #>
+<#@ include file="Includes.ttinclude"#>
+using <#= Namespace #>.Contracts;
+using System.Collections.Generic;
+using TNRD.StateManagement.Contracts;
+using Zenject;
+
+namespace <#= Namespace #>.Utilities
+{
+    public class <#= UpdateProviderName #> : <#= UpdateProviderInterfaceName #>, ITickable, IFixedTickable, ILateTickable
+    {
+        private readonly List<IUpdateReceiver> updateReceivers = new List<IUpdateReceiver>();
+        
+        /// <inheritdoc />
+        void IUpdateProvider.Register(IUpdateReceiver updateReceiver)
+        {
+            updateReceivers.Add(updateReceiver);
+        }
+
+        /// <inheritdoc />
+        void IUpdateProvider.Deregister(IUpdateReceiver updateReceiver)
+        {
+            updateReceivers.Remove(updateReceiver);
+        }
+
+        /// <inheritdoc />
+        void ITickable.Tick()
+        {
+            foreach (IUpdateReceiver updateReceiver in updateReceivers)
+            {
+                updateReceiver.Update();
+            }
+        }
+
+        /// <inheritdoc />
+        void IFixedTickable.FixedTick()
+        {
+            foreach (IUpdateReceiver updateReceiver in updateReceivers)
+            {
+                updateReceiver.FixedUpdate();
+            }
+        }
+
+        /// <inheritdoc />
+        void ILateTickable.LateTick()
+        {
+            foreach (IUpdateReceiver updateReceiver in updateReceivers)
+            {
+                updateReceiver.LateUpdate();
+            }
+        }
+    }
+}

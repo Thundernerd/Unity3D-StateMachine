@@ -1,0 +1,12 @@
+﻿<#@ template language="C#" #>
+<#@ include file="Includes.ttinclude"#>
+// AUTO-GENERATED
+
+using TNRD.StateManagement;
+
+namespace <#= Namespace #>.Utilities
+{
+    public sealed class <#= SubContainerManagerName #> : SubContainerManager
+    {
+    }
+}

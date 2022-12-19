@@ -1,0 +1,27 @@
+﻿<#@ template language="C#" #>
+<#@ include file="Includes.ttinclude"#>
+using System;
+using TNRD.StateManagement.Contracts;
+using <#= Namespace #>.Contracts;
+using <#= Namespace #>.Utilities;
+using Zenject;
+
+namespace <#= Namespace #>.Factories
+{
+    public class <#= TransitionFactoryName #> : <#= TransitionFactoryInterfaceName #>
+    {
+        [Inject] private <#= SubContainerManagerName #> subContainerManager;
+
+        /// <inheritdoc />
+        void ITransitionFactory.Initialize(IStateMachine stateMachine)
+        {
+            // Left empty on purpose
+        }
+
+        /// <inheritdoc />
+        ITransition ITransitionFactory.Instantiate(Enum transitionId, Type transitionType)
+        {
+            return (ITransition)subContainerManager.GetContainer(transitionId).Instantiate(transitionType);
+        }
+    }
+}

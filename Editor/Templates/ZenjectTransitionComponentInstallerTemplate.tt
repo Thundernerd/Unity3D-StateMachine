@@ -1,0 +1,25 @@
+﻿<#@ template language="C#" #>
+<#@ include file="Includes.ttinclude"#>
+// AUTO-GENERATED
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using TNRD.StateManagement;
+using <#= Namespace #>.Ids;
+using <#= Namespace #>.Utilities;
+using UnityEngine;
+
+namespace <#= Namespace #>.Installers
+{
+    public sealed class <#= StateMachineName #>TransitionComponentInstaller : StateMachineComponentInstaller<<#= SubContainerManagerName #>>
+    {
+        [SerializeField] private List<<#= TransitionIdName #>> ids;
+
+        /// <inheritdoc />
+        protected sealed override IEnumerable<Enum> GetIds()
+        {
+            return ids.Cast<Enum>();
+        }
+    }
+}

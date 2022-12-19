@@ -1,0 +1,18 @@
+﻿<#@ template language="C#" #>
+<#@ include file="Includes.ttinclude"#>
+using <#= Namespace #>.Contracts;
+using Zenject;
+
+namespace <#= Namespace #>.Utilities
+{
+    public class <#= FullStateMachineName #>Initializer : IInitializable
+    {
+        [Inject] private <#= StateMachineInterfaceName #> stateMachine;
+        
+        /// <inheritdoc />
+        void IInitializable.Initialize()
+        {
+            stateMachine.Initialize();
+        }
+    }
+}

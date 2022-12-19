@@ -1,0 +1,38 @@
+﻿<#@ template language="C#" #>
+<#@ include file="Includes.ttinclude"#>
+// AUTO-GENERATED
+
+using System;
+using TNRD.StateManagement;
+using TNRD.StateManagement.Contracts;
+using <#= Namespace #>.Contracts;
+using <#= Namespace #>.Ids;
+using <#= Namespace #>.States;
+using <#= Namespace #>.Transitions;
+
+namespace <#= Namespace #>
+{
+    public sealed partial class <#= FullStateMachineName #> : StateMachine, <#= StateMachineInterfaceName #>
+    {
+        /// <inheritdoc />
+        protected sealed override void CreateTransitions()
+        {
+<#
+    foreach (TNRD.StateManagement.StateMachineGraph.TransitionData data in Transitions)
+    {
+        foreach (string destination in data.Destinations)
+        {
+#>
+            AddTransition<<#= data.Source #>State, <#= data.Source #>To<#= destination #>Transition, <#= destination #>State>(
+                <#= StateIdName #>.<#= data.Source #>,
+                <#= TransitionIdName #>.<#= data.Source #>To<#= destination #>,
+                <#= StateIdName #>.<#= destination #>);
+<#
+        }
+    }
+#>
+
+            SetInitialState(<#= StateIdName #>.<#= InitialStateName #>);
+        }
+    }
+}

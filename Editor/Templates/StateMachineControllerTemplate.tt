@@ -1,0 +1,67 @@
+﻿<#@ template language="C#" #>
+<#@ include file="Includes.ttinclude"#>
+using <#= Namespace #>.Contracts;
+using <#= Namespace #>.Factories;
+using System.Collections.Generic;
+using TNRD.StateManagement.Contracts;
+using UnityEngine;
+
+namespace <#= Namespace #>.Utilities
+{
+    public class <#= FullStateMachineName #>Controller : MonoBehaviour, <#= UpdateProviderInterfaceName #>
+    {
+        private readonly List<IUpdateReceiver> updateReceivers = new List<IUpdateReceiver>();
+        
+        private <#= StateMachineInterfaceName#> testStateMachine;
+        private <#= StateFactoryInterfaceName#> testStateFactory;
+        private <#= TransitionFactoryInterfaceName#> testTransitionFactory;
+
+        private void Awake()
+        {
+            testStateFactory = new <#= StateFactoryName#>();
+            testTransitionFactory = new <#= TransitionFactoryName#>();
+            testStateMachine = new <#= FullStateMachineName#>(testStateFactory, testTransitionFactory, this);
+        }
+
+        private void Start()
+        {
+            testStateMachine.Initialize();
+        }
+
+        /// <inheritdoc />
+        void IUpdateProvider.Register(IUpdateReceiver updateReceiver)
+        {
+            updateReceivers.Add(updateReceiver);
+        }
+
+        /// <inheritdoc />
+        void IUpdateProvider.Deregister(IUpdateReceiver updateReceiver)
+        {
+            updateReceivers.Remove(updateReceiver);
+        }
+
+        private void Update()
+        {
+            foreach (IUpdateReceiver updateReceiver in updateReceivers)
+            {
+                updateReceiver.Update();
+            }
+        }
+
+        private void FixedUpdate()
+        {
+            foreach (IUpdateReceiver updateReceiver in updateReceivers)
+            {
+                updateReceiver.FixedUpdate();
+            }
+        }
+
+        private void LateUpdate()
+        {
+            foreach (IUpdateReceiver updateReceiver in updateReceivers)
+            {
+                updateReceiver.LateUpdate();
+            }
+        }
+    }
+}
