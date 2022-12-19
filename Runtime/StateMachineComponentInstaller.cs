@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
 
@@ -11,7 +12,14 @@ namespace TNRD.StateManagement
         [Inject] private TSubContainerManager subContainerManager;
 
         [SerializeField] private Component componentToInstall;
-        [SerializeField] private string id;
+        [SerializeField] private bool bindInterfaces;
+
+        [SerializeField, HideIf(nameof(bindInterfaces))]
+        private bool withId;
+
+        [SerializeField, ShowIf("@!this.bindInterfaces && this.withId")]
+        private string id;
+
         private Type installedType;
 
         protected abstract IEnumerable<Enum> GetIds();
@@ -23,10 +31,25 @@ namespace TNRD.StateManagement
 
             foreach (Enum stateId in GetIds())
             {
-                subContainerManager.GetContainer(stateId)
-                    .Bind(installedType)
-                    .WithId(id)
-                    .FromInstance(componentToInstall);
+                if (bindInterfaces)
+                {
+                    subContainerManager.GetContainer(stateId)
+                        .BindInterfacesAndSelfTo(installedType)
+                        .FromInstance(componentToInstall);
+                }
+                else if (withId)
+                {
+                    subContainerManager.GetContainer(stateId)
+                        .Bind(installedType)
+                        .WithId(id)
+                        .FromInstance(componentToInstall);
+                }
+                else
+                {
+                    subContainerManager.GetContainer(stateId)
+                        .Bind(installedType)
+                        .FromInstance(componentToInstall);
+                }
             }
         }
 
@@ -34,8 +57,21 @@ namespace TNRD.StateManagement
         {
             foreach (Enum stateId in GetIds())
             {
-                subContainerManager.GetContainer(stateId)
-                    .UnbindId(installedType, id);
+                if (bindInterfaces)
+                {
+                    subContainerManager.GetContainer(stateId)
+                        .UnbindInterfacesTo(installedType);
+                }
+                else if (withId)
+                {
+                    subContainerManager.GetContainer(stateId)
+                        .UnbindId(installedType, id);
+                }
+                else
+                {
+                    subContainerManager.GetContainer(stateId)
+                        .Unbind(installedType);
+                }
             }
         }
     }
