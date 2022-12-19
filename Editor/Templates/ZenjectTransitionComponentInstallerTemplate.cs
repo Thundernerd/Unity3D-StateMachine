@@ -70,7 +70,7 @@ namespace TNRD.StateManagement.Templates
             
             #line default
             #line hidden
-            this.Write("> ids;\r\n\r\n        /// <inheritdoc />\r\n        protected sealed override IEnumerable<Enum> GetIds()\r\n        {\r\n            return ids.Cast<Enum>();\r\n        }\r\n    }\r\n}\r\n");
+            this.Write("> transitionIds;\r\n\r\n        /// <inheritdoc />\r\n        protected sealed override IEnumerable<Enum> GetIds()\r\n        {\r\n            return transitionIds.Cast<Enum>();\r\n        }\r\n    }\r\n}\r\n");
             return this.GenerationEnvironment.ToString();
         }
         

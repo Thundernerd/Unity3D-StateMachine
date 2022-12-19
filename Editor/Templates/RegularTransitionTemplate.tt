@@ -8,8 +8,8 @@ namespace <#= Namespace #>.Transitions
 {
     public partial class <#= Source #>To<#= Destination #>Transition
     {
-        public <#= Source #>To<#= Destination #>Transition(<#= StateMachineInterfaceName #> <#= StateMachineNameLowercase #>)
-            : base(<#= StateMachineNameLowercase #>)
+        public <#= Source #>To<#= Destination #>Transition(<#= StateMachineInterfaceName #> <#= FullStateMachineNameLowercase #>)
+            : base(<#= FullStateMachineNameLowercase #>)
         {
         }
     

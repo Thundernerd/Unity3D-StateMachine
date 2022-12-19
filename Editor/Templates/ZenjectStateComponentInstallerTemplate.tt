@@ -14,12 +14,12 @@ namespace <#= Namespace #>.Installers
 {
     public sealed class <#= StateMachineName #>StateComponentInstaller : StateMachineComponentInstaller<<#= SubContainerManagerName #>>
     {
-        [SerializeField] private List<<#= StateIdName #>> ids;
+        [SerializeField] private List<<#= StateIdName #>> stateIds;
 
         /// <inheritdoc />
         protected sealed override IEnumerable<Enum> GetIds()
         {
-            return ids.Cast<Enum>();
+            return stateIds.Cast<Enum>();
         }
     }
 }

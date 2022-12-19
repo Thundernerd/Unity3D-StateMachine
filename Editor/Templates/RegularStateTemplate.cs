@@ -67,14 +67,14 @@ namespace TNRD.StateManagement.Templates
             this.Write(" ");
             
             #line 10 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\RegularStateTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(StateMachineNameLowercase));
+            this.Write(this.ToStringHelper.ToStringWithCulture(FullStateMachineNameLowercase));
             
             #line default
             #line hidden
             this.Write(")\r\n            : base(");
             
             #line 11 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\RegularStateTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(StateMachineNameLowercase));
+            this.Write(this.ToStringHelper.ToStringWithCulture(FullStateMachineNameLowercase));
             
             #line default
             #line hidden

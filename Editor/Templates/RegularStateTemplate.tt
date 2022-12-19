@@ -7,8 +7,8 @@ namespace <#= Namespace #>.States
 {
     public partial class <#= Name #>State
     {
-        public <#= Name #>State(<#= StateMachineInterfaceName #> <#= StateMachineNameLowercase #>)
-            : base(<#= StateMachineNameLowercase #>)
+        public <#= Name #>State(<#= StateMachineInterfaceName #> <#= FullStateMachineNameLowercase #>)
+            : base(<#= FullStateMachineNameLowercase #>)
         {
         }
 

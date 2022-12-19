@@ -81,14 +81,14 @@ namespace TNRD.StateManagement.Templates
             this.Write(" ");
             
             #line 11 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\RegularTransitionTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(StateMachineNameLowercase));
+            this.Write(this.ToStringHelper.ToStringWithCulture(FullStateMachineNameLowercase));
             
             #line default
             #line hidden
             this.Write(")\r\n            : base(");
             
             #line 12 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\RegularTransitionTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(StateMachineNameLowercase));
+            this.Write(this.ToStringHelper.ToStringWithCulture(FullStateMachineNameLowercase));
             
             #line default
             #line hidden
