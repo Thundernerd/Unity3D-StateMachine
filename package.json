@@ -1,6 +1,6 @@
 {
   "name": "net.tnrd.statemachine",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "displayName": "State Machine",
   "description": "A State Machine for Unity",
   "unity": "2019.1",
