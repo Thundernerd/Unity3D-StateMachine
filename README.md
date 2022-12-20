@@ -45,6 +45,8 @@ To make a state machine you first have to create a state machine graph. You can 
 
 This will create a new file that hosts the information to generate a state machine for you.
 
+![creating graph](/.documentation/create_graph.png)
+
 Once you have created a graph you are required to fill in some information:
 
 **State Machine Name**
@@ -63,11 +65,15 @@ This is the destination folder where the generated code for the state machine wi
 
 With this toggle you can select if you want this state machine to work with Zenject or not. Please keep in mind that the two options are not compatible with each other, which means that switching this after you've already generated the state machine before could lead to issues.
 
+![basic info](/.documentation/basic_info.png)
+
 ### Adding states
 
 To add a state you can click the button with the plus icon to the right of `States`. This will create a new entry in the `States` list.
 
 You can choose a name for the state, and if the state is the initial state. There can only be one initial state, and that is the state that is first entered when the state machine starts.
+
+![adding states](/.documentation/states.png)
 
 ### Adding transitions
 
@@ -78,6 +84,8 @@ Please note that you need to make states first for transitions to work.
 Once you have created a transition you have to first select the source for this transition. You can use the dropdown field to select a previously made state for this.
 
 Once you have selected a source, you can add destinations by clicking the button with the plus icon to the right of `Destinations`. Clicking this will show you a selection field where you have to select the destination state for this transition. You can only add each state once.
+
+![adding transitions](/.documentation/transitions.png)
 
 ### Generation
 
@@ -164,6 +172,8 @@ Note that you cannot bind interfaces **and** bind with a specific id at the same
 Next add states to the `State Ids` list or transitions to the `Transition Ids` list depending on which you have chosen. You can add as many states or transitions as you like.
 
 Finally, to make the injection actually happen, add the newly added component installer to the scene context in your scene under the `Mono Installers` section.
+
+![component installers](/.documentation/component_installers.png)
 
 ## Support
 It is by no means necessary but if you feel generous you can support me by donating.
