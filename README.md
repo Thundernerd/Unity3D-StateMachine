@@ -14,7 +14,7 @@
 	<img alt="GitHub last commit" src ="https://img.shields.io/github/last-commit/Thundernerd/Unity3D-StateMachine" />
 </p>
 
-A wrapper that allows you to serialize interfaces. Both UnityEngine.Object and regular object implementers work!
+A code-generated state machine including transitions, with support for Zenject.
 
 ## Installation
 1. The package is available on the [openupm registry](https://openupm.com). You can install it via [openupm-cli](https://github.com/openupm/openupm-cli).
