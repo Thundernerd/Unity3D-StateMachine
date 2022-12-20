@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/Thundernerd/Unity3D-StateMachine/compare/v1.0.3...v1.0.4) (2022-12-20)
+
+
+### Bug Fixes
+
+* **README:** added images to readme ([b4d59fc](https://github.com/Thundernerd/Unity3D-StateMachine/commit/b4d59fcde7c0fa1c3f90220f35e1a08f8f9f19ad))
+
 ## [1.0.3](https://github.com/Thundernerd/Unity3D-StateMachine/compare/v1.0.2...v1.0.3) (2022-12-20)
 
 
