@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if HAS_ZENJECT
+using System;
 using System.Collections.Generic;
 using Zenject;
 
@@ -24,3 +25,4 @@ namespace TNRD.StateManagement
         }
     }
 }
+#endif

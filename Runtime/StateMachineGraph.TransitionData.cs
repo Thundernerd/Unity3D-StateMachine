@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using Sirenix.OdinInspector;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace TNRD.StateManagement
@@ -11,39 +10,27 @@ namespace TNRD.StateManagement
         [Serializable]
         internal class TransitionData
         {
-            [SerializeField, HideInInspector] private StateMachineGraph graph;
-            [SerializeField, HideInInspector] private string guid;
-
-            [SerializeField, ValueDropdown(nameof(GetSourceStates))]
-            private string source;
-
-            [SerializeField, ValueDropdown(nameof(GetDestinationStates)),
-             DisableIf("@string.IsNullOrEmpty(this.source)")]
-            private string[] destinations;
+            [Serializable]
+            internal class Destination
+            {
+                public string state;
+            }
+            
+            [SerializeField, UsedImplicitly] private StateMachineGraph graph;
+            [SerializeField] private string guid;
+            [SerializeField] private string source;
+            [SerializeField] private Destination[] destinations;
 
             public TransitionData(StateMachineGraph graph)
             {
                 this.graph = graph;
                 guid = Guid.NewGuid().ToString();
                 source = string.Empty;
-                destinations = Array.Empty<string>();
-            }
-
-            private IEnumerable<string> GetSourceStates()
-            {
-                return graph.states.Select(x => x.Name)
-                    .Except(graph.Transitions.Select(x=>x.source));
-            }
-
-            private IEnumerable<string> GetDestinationStates()
-            {
-                return graph.states.Select(x => x.Name)
-                    .Except(destinations)
-                    .Except(new string[] { source });
+                destinations = Array.Empty<Destination>();
             }
 
             public string Source => source;
-            public string[] Destinations => destinations;
+            public string[] Destinations => destinations.Select(x=>x.state).ToArray();
         }
     }
 }

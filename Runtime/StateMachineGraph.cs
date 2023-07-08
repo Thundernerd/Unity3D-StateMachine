@@ -1,67 +1,43 @@
 ﻿using System.Collections.Generic;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace TNRD.StateManagement
 {
     [CreateAssetMenu(fileName = "State Machine Graph")]
-    public partial class StateMachineGraph : SerializedScriptableObject
+    public partial class StateMachineGraph : ScriptableObject
     {
         [SerializeField] private string stateMachineName;
         [SerializeField] private string @namespace;
-        [SerializeField, FolderPath] private string destination;
+        [SerializeField] private string destination;
+#if HAS_ZENJECT
         [SerializeField] private bool useZenject;
+#endif
 
-        [SerializeField, ListDrawerSettings(CustomAddFunction = nameof(CreateStateData))]
+        [SerializeField]
         private List<StateData> states;
 
-        [SerializeField, ListDrawerSettings(CustomAddFunction = nameof(CreateTransitionData))]
+        [SerializeField]
         private List<TransitionData> transitions;
 
         internal string StateMachineName => stateMachineName;
         internal string Namespace => @namespace;
         internal string Destination => destination;
 
-        [BoxGroup("Preview"), ShowInInspector, ReadOnly]
         public string FullStateMachineName => $"{stateMachineName}StateMachine";
-
-        [BoxGroup("Preview"), ShowInInspector, ReadOnly]
         public string SubContainerManagerName => $"{stateMachineName}SubContainerManager";
-
-        [BoxGroup("Preview"), ShowInInspector, ReadOnly]
         public string StateIdName => $"{stateMachineName}StateId";
-
-        [BoxGroup("Preview"), ShowInInspector, ReadOnly]
         public string TransitionIdName => $"{stateMachineName}TransitionId";
-
-        [BoxGroup("Preview"), ShowInInspector, ReadOnly]
         public string BaseStateName => $"Base{stateMachineName}State";
-
-        [BoxGroup("Preview"), ShowInInspector, ReadOnly]
         public string BaseTransitionName => $"Base{stateMachineName}Transition";
-
-        [BoxGroup("Preview"), ShowInInspector, ReadOnly]
         public string StateFactoryName => $"{stateMachineName}StateFactory";
-
-        [BoxGroup("Preview"), ShowInInspector, ReadOnly]
         public string TransitionFactoryName => $"{stateMachineName}TransitionFactory";
-
-        [BoxGroup("Preview"), ShowInInspector, ReadOnly]
         public string UpdateProviderName => $"{stateMachineName}UpdateProvider";
 
+#if HAS_ZENJECT
         public bool UseZenject => useZenject;
+#endif
 
         internal List<StateData> States => states;
         internal List<TransitionData> Transitions => transitions;
-
-        private StateData CreateStateData()
-        {
-            return new StateData(this);
-        }
-
-        private TransitionData CreateTransitionData()
-        {
-            return new TransitionData(this);
-        }
     }
 }

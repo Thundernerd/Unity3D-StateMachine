@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Linq;
-using Sirenix.OdinInspector;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace TNRD.StateManagement
@@ -10,11 +9,11 @@ namespace TNRD.StateManagement
         [Serializable]
         internal class StateData
         {
-            [SerializeField, HideInInspector] private StateMachineGraph graph;
-            [SerializeField, HideInInspector] private string guid;
+            [SerializeField, UsedImplicitly] private StateMachineGraph graph;
+            [SerializeField] private string guid;
             [SerializeField] private string name;
 
-            [SerializeField, ShowIf(nameof(CanShowIsInitialInState))]
+            [SerializeField]
             private bool isInitialState;
 
             public StateData(StateMachineGraph graph)
@@ -23,11 +22,6 @@ namespace TNRD.StateManagement
                 guid = Guid.NewGuid().ToString();
                 name = string.Empty;
                 isInitialState = false;
-            }
-
-            private bool CanShowIsInitialInState()
-            {
-                return isInitialState || graph.states.All(x => !x.IsInitialState);
             }
 
             public string Name => name;

@@ -42,6 +42,7 @@ namespace TNRD.StateManagement
             generator.GenerateInterfaces();
             generator.GenerateFactories();
 
+#if HAS_ZENJECT
             if (stateMachineGraph.UseZenject)
             {
                 generator.GenerateZenjectContainerManager();
@@ -53,6 +54,9 @@ namespace TNRD.StateManagement
             {
                 generator.GenerateStateMachineController();
             }
+#else
+            generator.GenerateStateMachineController();
+#endif
 
             generator.GenerateIds();
             generator.GenerateBase();
@@ -165,6 +169,7 @@ namespace TNRD.StateManagement
 
         private void GenerateFactories()
         {
+#if HAS_ZENJECT
             void GenerateZenjectStateFactory()
             {
                 string path = Path.Combine(Destination, "Factories", StateFactoryName + ".cs");
@@ -192,6 +197,7 @@ namespace TNRD.StateManagement
                 string transformedText = template.TransformText().TrimStart('\r', '\n');
                 File.WriteAllText(path, transformedText);
             }
+#endif
 
             void GenerateBasicStateFactory()
             {
@@ -223,6 +229,7 @@ namespace TNRD.StateManagement
 
             Directory.CreateDirectory(Path.Combine(Destination, "Factories"));
 
+#if HAS_ZENJECT
             if (stateMachineGraph.UseZenject)
             {
                 GenerateZenjectStateFactory();
@@ -233,8 +240,13 @@ namespace TNRD.StateManagement
                 GenerateBasicStateFactory();
                 GenerateBasicTransitionFactory();
             }
+#else
+            GenerateBasicStateFactory();
+            GenerateBasicTransitionFactory();
+#endif
         }
 
+#if HAS_ZENJECT
         private void GenerateZenjectUpdateProvider()
         {
             Directory.CreateDirectory(Path.Combine(Destination, "Utilities"));
@@ -313,6 +325,7 @@ namespace TNRD.StateManagement
             File.WriteAllText(Path.Combine(Destination, "Utilities", FullStateMachineName + "Initializer.cs"),
                 transformedText);
         }
+#endif
 
         private void GenerateStateMachineController()
         {

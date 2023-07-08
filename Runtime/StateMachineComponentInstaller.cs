@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if HAS_ZENJECT
+using System;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -76,3 +77,4 @@ namespace TNRD.StateManagement
         }
     }
 }
+#endif
