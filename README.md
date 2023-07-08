@@ -34,9 +34,9 @@ openupm add net.tnrd.statemachine
    5. Click "Add"
 
 ## Dependencies
-Currently this package has a dependency on [Odin Inspector](https://odininspector.com). This is used for drawing the inspector for the `StateMachineGraph` asset.
+This package works with Zenject. To enable this you have to add the Extenject package to your project through the package manager.
 
-Future versions (TBD.) will drop this dependency in favor of a visual graph editor.
+The reason you have to use the Extenject package is because the Zenject package is not available as a package.
 
 ## Usage
 
