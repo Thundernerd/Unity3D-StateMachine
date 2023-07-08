@@ -18,9 +18,9 @@ namespace TNRD.StateManagement.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\StateMachineControllerTemplate.tt"
+    #line 1 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\GeneratedStateMachineControllerTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
-    public partial class StateMachineControllerTemplate : StateMachineControllerTemplateBase
+    public partial class GeneratedStateMachineControllerTemplate : GeneratedStateMachineControllerTemplateBase
     {
 #line hidden
         /// <summary>
@@ -28,25 +28,88 @@ namespace TNRD.StateManagement.Templates
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("\r\nnamespace ");
+            this.Write("\r\n// AUTO-GENERATED\r\n\r\nusing ");
             
-            #line 3 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\StateMachineControllerTemplate.tt"
+            #line 5 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\GeneratedStateMachineControllerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
+            
+            #line default
+            #line hidden
+            this.Write(".Contracts;\r\nusing ");
+            
+            #line 6 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\GeneratedStateMachineControllerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
+            
+            #line default
+            #line hidden
+            this.Write(".Factories;\r\nusing System.Collections.Generic;\r\nusing TNRD.StateManagement;\r\nusing TNRD.StateManagement.Contracts;\r\nusing UnityEngine;\r\n\r\nnamespace ");
+            
+            #line 12 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\GeneratedStateMachineControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write(".Utilities\r\n{\r\n    public sealed partial class ");
             
-            #line 5 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\StateMachineControllerTemplate.tt"
+            #line 14 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\GeneratedStateMachineControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(FullStateMachineName));
             
             #line default
             #line hidden
-            this.Write("Controller\r\n    {\r\n        private void OnAwake()\r\n        {\r\n        }\r\n\r\n        private void OnStart()\r\n        {\r\n        }\r\n\r\n        private void OnUpdate()\r\n        {\r\n        }\r\n\r\n        private void OnFixedUpdate()\r\n        {\r\n        }\r\n\r\n        private void OnLateUpdate()\r\n        {\r\n        }\r\n    }\r\n}\r\n");
+            this.Write("Controller : \r\n        StateMachineController,\r\n        ");
+            
+            #line 16 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\GeneratedStateMachineControllerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(UpdateProviderInterfaceName));
+            
+            #line default
+            #line hidden
+            this.Write(",\r\n        IStateMachineController\r\n    {\r\n        private readonly List<IUpdateReceiver> updateReceivers = new List<IUpdateReceiver>();\r\n        \r\n        protected override IStateMachine StateMachine => stateMachine;\r\n        \r\n        private ");
+            
+            #line 23 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\GeneratedStateMachineControllerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(StateMachineInterfaceName));
+            
+            #line default
+            #line hidden
+            this.Write(" stateMachine;\r\n        private ");
+            
+            #line 24 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\GeneratedStateMachineControllerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(StateFactoryInterfaceName));
+            
+            #line default
+            #line hidden
+            this.Write(" stateFactory;\r\n        private ");
+            
+            #line 25 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\GeneratedStateMachineControllerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TransitionFactoryInterfaceName));
+            
+            #line default
+            #line hidden
+            this.Write(" transitionFactory;\r\n\r\n        private void Awake()\r\n        {\r\n            stateFactory = new ");
+            
+            #line 29 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\GeneratedStateMachineControllerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(StateFactoryName));
+            
+            #line default
+            #line hidden
+            this.Write("();\r\n            transitionFactory = new ");
+            
+            #line 30 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\GeneratedStateMachineControllerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(TransitionFactoryName));
+            
+            #line default
+            #line hidden
+            this.Write("();\r\n            stateMachine = new ");
+            
+            #line 31 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\GeneratedStateMachineControllerTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(FullStateMachineName));
+            
+            #line default
+            #line hidden
+            this.Write("(stateFactory, transitionFactory, this);\r\n\r\n            OnAwake();\r\n        }\r\n\r\n        private void Start()\r\n        {\r\n            stateMachine.Initialize();\r\n\r\n            OnStart();\r\n        }\r\n\r\n        /// <inheritdoc />\r\n        void IUpdateProvider.Register(IUpdateReceiver updateReceiver)\r\n        {\r\n            updateReceivers.Add(updateReceiver);\r\n        }\r\n\r\n        /// <inheritdoc />\r\n        void IUpdateProvider.Deregister(IUpdateReceiver updateReceiver)\r\n        {\r\n            updateReceivers.Remove(updateReceiver);\r\n        }\r\n\r\n        private void Update()\r\n        {\r\n            foreach (IUpdateReceiver updateReceiver in updateReceivers)\r\n            {\r\n                updateReceiver.Update();\r\n            }\r\n\r\n            OnUpdate();\r\n        }\r\n\r\n        private void FixedUpdate()\r\n        {\r\n            foreach (IUpdateReceiver updateReceiver in updateReceivers)\r\n            {\r\n                updateReceiver.FixedUpdate();\r\n            }\r\n\r\n            OnFixedUpdate();\r\n        }\r\n\r\n        private void LateUpdate()\r\n        {\r\n            foreach (IUpdateReceiver updateReceiver in updateReceivers)\r\n            {\r\n                updateReceiver.LateUpdate();\r\n            }\r\n\r\n            OnLateUpdate();\r\n        }\r\n    }\r\n}\r\n");
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 1 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\StateMachineControllerTemplate.tt"
+        #line 1 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\GeneratedStateMachineControllerTemplate.tt"
 
 private string _NamespaceField;
 
@@ -614,7 +677,7 @@ if ((TransitionsValueAcquired == false))
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
-    public class StateMachineControllerTemplateBase
+    public class GeneratedStateMachineControllerTemplateBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;

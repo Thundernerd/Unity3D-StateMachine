@@ -329,14 +329,32 @@ namespace TNRD.StateManagement
 
         private void GenerateStateMachineController()
         {
+            void GenerateRegular()
+            {
+                StateMachineControllerTemplate template = new StateMachineControllerTemplate();
+                template.Session = new Dictionary<string, object>();
+                AddIncludes(template.Session);
+                template.Initialize();
+                string transformedText = template.TransformText().TrimStart('\r', '\n');
+                File.WriteAllText(Path.Combine(Destination, "Utilities", FullStateMachineName + "Controller.cs"),
+                    transformedText);
+            }
+
+            void GenerateGenerated()
+            {
+                GeneratedStateMachineControllerTemplate template = new GeneratedStateMachineControllerTemplate();
+                template.Session = new Dictionary<string, object>();
+                AddIncludes(template.Session);
+                template.Initialize();
+                string transformedText = template.TransformText().TrimStart('\r', '\n');
+                File.WriteAllText(Path.Combine(Destination, "Utilities", FullStateMachineName + "Controller.g.cs"),
+                    transformedText);
+            }
+            
             Directory.CreateDirectory(Path.Combine(Destination, "Utilities"));
-            StateMachineControllerTemplate template = new StateMachineControllerTemplate();
-            template.Session = new Dictionary<string, object>();
-            AddIncludes(template.Session);
-            template.Initialize();
-            string transformedText = template.TransformText().TrimStart('\r', '\n');
-            File.WriteAllText(Path.Combine(Destination, "Utilities", FullStateMachineName + "Controller.cs"),
-                transformedText);
+            
+            GenerateRegular();
+            GenerateGenerated();
         }
 
         private void GenerateIds()
