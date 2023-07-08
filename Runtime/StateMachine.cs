@@ -30,6 +30,8 @@ namespace TNRD.StateManagement
         private Enum initialStateId;
         private IState currentState;
 
+        IState IStateMachine.CurrentState => currentState;
+
         protected StateMachine(
             IStateFactory stateFactory,
             ITransitionFactory transitionFactory,
@@ -153,6 +155,23 @@ namespace TNRD.StateManagement
             // ReSharper disable once SuspiciousTypeConversion.Global
             if (currentState is ILateUpdateable lateUpdateable)
                 lateUpdateable.LateUpdate();
+        }
+
+        /// <inheritdoc />
+        [PublicAPI]
+        IEnumerable<PossibleTransition> IStateMachine.GetPossibleTransitions()
+        {
+            List<PossibleTransition> ids = new();
+
+            foreach (KeyValuePair<Enum, TransitionData> kvp in transitionIdToTransitionData)
+            {
+                if (Equals(kvp.Value.Source, currentState.StateId))
+                {
+                    ids.Add(new PossibleTransition(kvp.Key, kvp.Value.Destination));
+                }
+            }
+
+            return ids;
         }
     }
 }
