@@ -1,3 +1,14 @@
+## [1.0.5](https://github.com/Thundernerd/Unity3D-StateMachine/compare/v1.0.4...v1.0.5) (2023-07-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* removed dependency on Odin and Zenject
+
+### Refactors
+
+* removed dependency on Odin and Zenject ([9c7cfc7](https://github.com/Thundernerd/Unity3D-StateMachine/commit/9c7cfc75765961fda6ff432dc3e4d9b9d84e4792))
+
 ## [1.0.4](https://github.com/Thundernerd/Unity3D-StateMachine/compare/v1.0.3...v1.0.4) (2022-12-20)
 
 
