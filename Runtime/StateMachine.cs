@@ -8,7 +8,7 @@ namespace TNRD.StateManagement
 {
     public abstract class StateMachine : IStateMachine, IUpdateReceiver
     {
-        private struct TransitionData
+        private class TransitionData
         {
             public Enum Source { get; set; }
             public Enum Destination { get; set; }
@@ -18,14 +18,9 @@ namespace TNRD.StateManagement
         private readonly ITransitionFactory transitionFactory;
         private readonly IUpdateProvider updateProvider;
 
-        private readonly Dictionary<Enum, Type> stateIdToStateType =
-            new Dictionary<Enum, Type>();
-
-        private readonly Dictionary<Enum, Type> transitionIdToTransitionType =
-            new Dictionary<Enum, Type>();
-
-        private readonly Dictionary<Enum, TransitionData> transitionIdToTransitionData =
-            new Dictionary<Enum, TransitionData>();
+        private readonly Dictionary<Enum, Type> stateIdToStateType = new();
+        private readonly Dictionary<Enum, Type> transitionIdToTransitionType = new();
+        private readonly Dictionary<Enum, TransitionData> transitionIdToTransitionData = new();
 
         private Enum initialStateId;
         private IState currentState;
@@ -83,10 +78,10 @@ namespace TNRD.StateManagement
             Assert.IsFalse(transitionIdToTransitionType.ContainsKey(transitionId));
             Assert.IsFalse(transitionIdToTransitionData.ContainsKey(transitionId));
 
-            if (stateIdToStateType.ContainsKey(sourceStateId))
-                Assert.AreEqual(stateIdToStateType[sourceStateId], typeof(TSourceState));
-            if (stateIdToStateType.ContainsKey(destinationStateId))
-                Assert.AreEqual(stateIdToStateType[destinationStateId], typeof(TDestinationState));
+            if (stateIdToStateType.TryGetValue(sourceStateId, out Type sourceStateType))
+                Assert.AreEqual(sourceStateType, typeof(TSourceState));
+            if (stateIdToStateType.TryGetValue(destinationStateId, out Type destinationStateType))
+                Assert.AreEqual(destinationStateType, typeof(TDestinationState));
 
             stateIdToStateType[sourceStateId] = typeof(TSourceState);
             stateIdToStateType[destinationStateId] = typeof(TDestinationState);
