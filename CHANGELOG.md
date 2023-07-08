@@ -1,3 +1,13 @@
+## [1.1.0](https://github.com/Thundernerd/Unity3D-StateMachine/compare/v1.0.5...v1.1.0) (2023-07-08)
+
+
+### Features
+
+* add StateMachineController ([dda2718](https://github.com/Thundernerd/Unity3D-StateMachine/commit/dda2718f0e168a8df693abcddbe619b329e99397))
+* add StateMachineController editor ([b41867f](https://github.com/Thundernerd/Unity3D-StateMachine/commit/b41867fe8030656fc4602cba58e67d996f0cf813))
+* expose extra information through IStateMachine ([6ee1551](https://github.com/Thundernerd/Unity3D-StateMachine/commit/6ee15519ed950e1c03341f1a6c93a923dd418baa))
+* update generation ([ec19d2a](https://github.com/Thundernerd/Unity3D-StateMachine/commit/ec19d2abf9e3aef0339b6d4c13cb2456be9700a7))
+
 ## [1.0.5](https://github.com/Thundernerd/Unity3D-StateMachine/compare/v1.0.4...v1.0.5) (2023-07-08)
 
 
