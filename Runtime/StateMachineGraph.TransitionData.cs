@@ -15,7 +15,7 @@ namespace TNRD.StateManagement
             {
                 public string state;
             }
-            
+
             [SerializeField, UsedImplicitly] private StateMachineGraph graph;
             [SerializeField] private string guid;
             [SerializeField] private string source;
@@ -29,8 +29,16 @@ namespace TNRD.StateManagement
                 destinations = Array.Empty<Destination>();
             }
 
+            public TransitionData(StateMachineGraph graph, string source, string[] destinations)
+            {
+                this.graph = graph;
+                guid = Guid.NewGuid().ToString();
+                this.source = source;
+                this.destinations = destinations.Select(x => new Destination { state = x }).ToArray();
+            }
+
             public string Source => source;
-            public string[] Destinations => destinations.Select(x=>x.state).ToArray();
+            public string[] Destinations => destinations.Select(x => x.state).ToArray();
         }
     }
 }

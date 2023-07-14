@@ -27,7 +27,7 @@ namespace TNRD.StateManagement
         private string TransitionFactoryName => stateMachineGraph.TransitionFactoryName;
         private string TransitionFactoryInterfaceName => $"I{TransitionFactoryName}";
         private List<StateMachineGraph.StateData> States => stateMachineGraph.States;
-        private List<StateMachineGraph.TransitionData> Transitions => stateMachineGraph.Transitions;
+        private List<StateMachineGraph.TransitionData> Transitions => stateMachineGraph.GetTransitions();
 
         public StateMachineGraphGenerator(StateMachineGraph stateMachineGraph)
         {
