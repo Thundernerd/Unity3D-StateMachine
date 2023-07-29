@@ -1,3 +1,10 @@
+## [1.2.0](https://github.com/Thundernerd/Unity3D-StateMachine/compare/v1.1.0...v1.2.0) (2023-07-29)
+
+
+### Features
+
+* add support for any states ([2a62069](https://github.com/Thundernerd/Unity3D-StateMachine/commit/2a62069553c5cb103ab0d991555e4ce781c0b5e0))
+
 ## [1.1.0](https://github.com/Thundernerd/Unity3D-StateMachine/compare/v1.0.5...v1.1.0) (2023-07-08)
 
 
