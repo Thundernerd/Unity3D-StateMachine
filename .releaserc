@@ -14,7 +14,7 @@
                     {
                         "breaking": true,
                         "release": "major"
-                    }
+                    },
                     {
                         "type": "docs",
                         "scope": "README",
