@@ -1,3 +1,20 @@
+## [2.0.0](https://github.com/Thundernerd/Unity3D-StateMachine/compare/v1.2.0...v2.0.0) (2023-07-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* removed regular enums in favor of ScriptableObjectCollection
+
+### Bug Fixes
+
+* **no-release:** workflow ([1110807](https://github.com/Thundernerd/Unity3D-StateMachine/commit/11108079a08f72485b885ba284512a2b4b2b33e8))
+* **no-release:** workflow ([6c0b6d8](https://github.com/Thundernerd/Unity3D-StateMachine/commit/6c0b6d88363630ec1e118c9df08ef8e9aae3f95b))
+
+
+### Refactors
+
+* removed regular enums in favor of ScriptableObjectCollection ([3f09981](https://github.com/Thundernerd/Unity3D-StateMachine/commit/3f099818bae905386461098d97401a2bb4cbc267))
+
 ## [1.2.0](https://github.com/Thundernerd/Unity3D-StateMachine/compare/v1.1.0...v1.2.0) (2023-07-29)
 
 
