@@ -18,7 +18,7 @@ namespace TNRD.StateManagement.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\GeneratedTransitionTemplate.tt"
+    #line 1 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\GeneratedTransitionTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
     public partial class GeneratedTransitionTemplate : GeneratedTransitionTemplateBase
     {
@@ -29,65 +29,65 @@ namespace TNRD.StateManagement.Templates
         public virtual string TransformText()
         {
             this.Write("\r\n");
-            this.Write("// AUTO-GENERATED\r\n\r\nusing ");
+            this.Write("// AUTO-GENERATED\r\nusing BrunoMikoski.ScriptableObjectCollections;\r\nusing ");
             
-            #line 7 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\GeneratedTransitionTemplate.tt"
+            #line 7 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\GeneratedTransitionTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write(".Base;\r\nusing ");
             
-            #line 8 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\GeneratedTransitionTemplate.tt"
+            #line 8 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\GeneratedTransitionTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write(".Ids;\r\nusing System;\r\n\r\nnamespace ");
             
-            #line 11 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\GeneratedTransitionTemplate.tt"
+            #line 11 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\GeneratedTransitionTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write(".Transitions\r\n{\r\n    public partial class ");
             
-            #line 13 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\GeneratedTransitionTemplate.tt"
+            #line 13 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\GeneratedTransitionTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Source));
             
             #line default
             #line hidden
             this.Write("To");
             
-            #line 13 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\GeneratedTransitionTemplate.tt"
+            #line 13 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\GeneratedTransitionTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Destination));
             
             #line default
             #line hidden
             this.Write("Transition : ");
             
-            #line 13 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\GeneratedTransitionTemplate.tt"
+            #line 13 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\GeneratedTransitionTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(BaseTransitionName));
             
             #line default
             #line hidden
-            this.Write("\r\n    {\r\n        /// <inheritdoc />\r\n        public override Enum TransitionId => ");
+            this.Write("\r\n    {\r\n        /// <inheritdoc />\r\n        public override ScriptableObjectCollectionItem TransitionId => ");
             
-            #line 16 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\GeneratedTransitionTemplate.tt"
+            #line 16 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\GeneratedTransitionTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TransitionIdName));
             
             #line default
             #line hidden
             this.Write(".");
             
-            #line 16 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\GeneratedTransitionTemplate.tt"
+            #line 16 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\GeneratedTransitionTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Source));
             
             #line default
             #line hidden
             this.Write("To");
             
-            #line 16 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\GeneratedTransitionTemplate.tt"
+            #line 16 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\GeneratedTransitionTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Destination));
             
             #line default
@@ -96,7 +96,7 @@ namespace TNRD.StateManagement.Templates
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 1 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\GeneratedTransitionTemplate.tt"
+        #line 1 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\GeneratedTransitionTemplate.tt"
 
 private string _NamespaceField;
 

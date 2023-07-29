@@ -1,13 +1,14 @@
 ﻿using System;
+using BrunoMikoski.ScriptableObjectCollections;
 
 namespace TNRD.StateManagement
 {
     public struct PossibleTransition
     {
-        public Enum TransitionId { get; }
-        public Enum DestinationStateId { get; }
+        public ScriptableObjectCollectionItem TransitionId { get; }
+        public ScriptableObjectCollectionItem DestinationStateId { get; }
 
-        public PossibleTransition(Enum transitionId, Enum destinationStateId)
+        public PossibleTransition(ScriptableObjectCollectionItem transitionId, ScriptableObjectCollectionItem destinationStateId)
         {
             TransitionId = transitionId;
             DestinationStateId = destinationStateId;

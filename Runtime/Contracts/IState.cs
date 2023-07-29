@@ -1,10 +1,10 @@
-﻿using System;
+﻿using BrunoMikoski.ScriptableObjectCollections;
 
 namespace TNRD.StateManagement.Contracts
 {
     public interface IState
     {
-        Enum StateId { get; }
+        ScriptableObjectCollectionItem StateId { get; }
         void OnEnter();
         void OnExit();
     }

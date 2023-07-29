@@ -17,6 +17,12 @@
 A code-generated state machine including transitions, with support for Zenject.
 
 ## Installation
+
+### Dependencies
+This package has a **hard** dependency on [Scriptable Object Collection](https://github.com/brunomikoski/ScriptableObjectCollection.git), an amazing package by [Bruno Mikoski](https://github.com/brunomikoski/ScriptableObjectCollection.git). Please follow the installation instructions in the readme of that repository.
+
+### Installing the package
+
 1. The package is available on the [openupm registry](https://openupm.com). You can install it via [openupm-cli](https://github.com/openupm/openupm-cli).
 ```
 openupm add net.tnrd.statemachine
@@ -30,10 +36,10 @@ openupm add net.tnrd.statemachine
    1. Open the package manager
    2. Click the plus symbol in the top left corner
    3. Select "Add package from git URL..."
-   4. Paste this url: https://github.com/Thundernerd/Unity3D-StateMachine
+   4. Paste this url: https://github.com/Thundernerd/Unity3D-StateMachine.git
    5. Click "Add"
 
-## Dependencies
+## Soft Dependencies
 This package works with Zenject. To enable this you have to add the Extenject package to your project through the package manager.
 
 The reason you have to use the Extenject package is because the Zenject package is not available as a package.

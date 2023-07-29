@@ -18,7 +18,7 @@ namespace TNRD.StateManagement.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\BasicTransitionFactoryTemplate.tt"
+    #line 1 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\BasicTransitionFactoryTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
     public partial class BasicTransitionFactoryTemplate : BasicTransitionFactoryTemplateBase
     {
@@ -28,39 +28,39 @@ namespace TNRD.StateManagement.Templates
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("\r\nusing System;\r\nusing TNRD.StateManagement.Contracts;\r\nusing ");
+            this.Write("\r\nusing System;\r\nusing BrunoMikoski.ScriptableObjectCollections;\r\nusing TNRD.StateManagement.Contracts;\r\nusing ");
             
-            #line 5 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\BasicTransitionFactoryTemplate.tt"
+            #line 6 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\BasicTransitionFactoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write(".Contracts;\r\n\r\nnamespace ");
             
-            #line 7 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\BasicTransitionFactoryTemplate.tt"
+            #line 8 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\BasicTransitionFactoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write(".Factories\r\n{\r\n    public class ");
             
-            #line 9 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\BasicTransitionFactoryTemplate.tt"
+            #line 10 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\BasicTransitionFactoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TransitionFactoryName));
             
             #line default
             #line hidden
             this.Write(" : ");
             
-            #line 9 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\BasicTransitionFactoryTemplate.tt"
+            #line 10 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\BasicTransitionFactoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(TransitionFactoryInterfaceName));
             
             #line default
             #line hidden
-            this.Write("\r\n    {\r\n        private IStateMachine stateMachine;\r\n\r\n        /// <inheritdoc />\r\n        void ITransitionFactory.Initialize(IStateMachine stateMachine)\r\n        {\r\n            this.stateMachine = stateMachine;\r\n        }\r\n\r\n        /// <inheritdoc />\r\n        ITransition ITransitionFactory.Instantiate(Enum transitionId, Type transitionType)\r\n        {\r\n            return (ITransition)Activator.CreateInstance(transitionType, new object[] { stateMachine });\r\n        }\r\n    }\r\n}\r\n");
+            this.Write("\r\n    {\r\n        private IStateMachine stateMachine;\r\n\r\n        /// <inheritdoc />\r\n        void ITransitionFactory.Initialize(IStateMachine stateMachine)\r\n        {\r\n            this.stateMachine = stateMachine;\r\n        }\r\n\r\n        /// <inheritdoc />\r\n        ITransition ITransitionFactory.Instantiate(ScriptableObjectCollectionItem transitionId, Type transitionType)\r\n        {\r\n            return (ITransition)Activator.CreateInstance(transitionType, new object[] { stateMachine });\r\n        }\r\n    }\r\n}\r\n");
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 1 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\BasicTransitionFactoryTemplate.tt"
+        #line 1 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\BasicTransitionFactoryTemplate.tt"
 
 private string _NamespaceField;
 

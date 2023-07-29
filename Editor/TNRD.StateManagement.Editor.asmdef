@@ -2,7 +2,9 @@
     "name": "TNRD.StateManagement.Editor",
     "rootNamespace": "TNRD.StateManagement",
     "references": [
-        "GUID:07edea13ecbc0a94f9f9e8e6da43b6ec"
+        "TNRD.StateManagement",
+        "BrunoMikoski.ScriptableObjectCollection",
+        "BrunoMikoski.ScriptableObjectCollection.Editor",
     ],
     "includePlatforms": [
         "Editor"

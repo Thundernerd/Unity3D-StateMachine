@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using BrunoMikoski.ScriptableObjectCollections;
 using JetBrains.Annotations;
 using TNRD.StateManagement.Contracts;
 using UnityEngine.Assertions;
@@ -10,19 +11,19 @@ namespace TNRD.StateManagement
     {
         private class TransitionData
         {
-            public Enum Source { get; set; }
-            public Enum Destination { get; set; }
+            public ScriptableObjectCollectionItem Source { get; set; }
+            public ScriptableObjectCollectionItem Destination { get; set; }
         }
 
         private readonly IStateFactory stateFactory;
         private readonly ITransitionFactory transitionFactory;
         private readonly IUpdateProvider updateProvider;
 
-        private readonly Dictionary<Enum, Type> stateIdToStateType = new();
-        private readonly Dictionary<Enum, Type> transitionIdToTransitionType = new();
-        private readonly Dictionary<Enum, TransitionData> transitionIdToTransitionData = new();
+        private readonly Dictionary<ScriptableObjectCollectionItem, Type> stateIdToStateType = new();
+        private readonly Dictionary<ScriptableObjectCollectionItem, Type> transitionIdToTransitionType = new();
+        private readonly Dictionary<ScriptableObjectCollectionItem, TransitionData> transitionIdToTransitionData = new();
 
-        private Enum initialStateId;
+        private ScriptableObjectCollectionItem initialStateId;
         private IState currentState;
 
         IState IStateMachine.CurrentState => currentState;
@@ -60,16 +61,16 @@ namespace TNRD.StateManagement
         }
 
         [PublicAPI]
-        protected void SetInitialState(Enum stateId)
+        protected void SetInitialState(ScriptableObjectCollectionItem stateId)
         {
             initialStateId = stateId;
         }
 
         [PublicAPI]
         protected void AddTransition<TSourceState, TTransition, TDestinationState>(
-            Enum sourceStateId,
-            Enum transitionId,
-            Enum destinationStateId
+            ScriptableObjectCollectionItem sourceStateId,
+            ScriptableObjectCollectionItem transitionId,
+            ScriptableObjectCollectionItem destinationStateId
         )
             where TSourceState : IState
             where TTransition : ITransition
@@ -95,7 +96,7 @@ namespace TNRD.StateManagement
         }
 
         [PublicAPI]
-        public void Transition(Enum transitionId)
+        public void Transition(ScriptableObjectCollectionItem transitionId)
         {
             Assert.IsNotNull(currentState);
 
@@ -113,7 +114,7 @@ namespace TNRD.StateManagement
 
         /// <inheritdoc />
         [PublicAPI]
-        public void OnTransitionFinished(Enum transitionId)
+        public void OnTransitionFinished(ScriptableObjectCollectionItem transitionId)
         {
             currentState.OnExit();
 
@@ -158,7 +159,7 @@ namespace TNRD.StateManagement
         {
             List<PossibleTransition> ids = new();
 
-            foreach (KeyValuePair<Enum, TransitionData> kvp in transitionIdToTransitionData)
+            foreach (KeyValuePair<ScriptableObjectCollectionItem, TransitionData> kvp in transitionIdToTransitionData)
             {
                 if (Equals(kvp.Value.Source, currentState.StateId))
                 {

@@ -1,6 +1,7 @@
 ﻿<#@ template language="C#" #>
 <#@ include file="Includes.ttinclude"#>
 using System;
+using BrunoMikoski.ScriptableObjectCollections;
 using TNRD.StateManagement.Contracts;
 using <#= Namespace #>.Contracts;
 
@@ -17,7 +18,7 @@ namespace <#= Namespace #>.Factories
         }
 
         /// <inheritdoc />
-        ITransition ITransitionFactory.Instantiate(Enum transitionId, Type transitionType)
+        ITransition ITransitionFactory.Instantiate(ScriptableObjectCollectionItem transitionId, Type transitionType)
         {
             return (ITransition)Activator.CreateInstance(transitionType, new object[] { stateMachine });
         }

@@ -2,7 +2,7 @@
 <#@ include file="Includes.ttinclude"#>
 <#@ parameter name="Name" type="System.String"#>
 // AUTO-GENERATED
-
+using BrunoMikoski.ScriptableObjectCollections;
 using <#= Namespace #>.Base;
 using <#= Namespace #>.Ids;
 using System;
@@ -12,7 +12,7 @@ namespace <#= Namespace #>.States
     public partial class <#= Name #>State : <#= BaseStateName #>
     {
         /// <inheritdoc />
-        public sealed override Enum StateId => <#= StateIdName #>.<#= Name #>;
+        public sealed override ScriptableObjectCollectionItem StateId => <#= StateIdName #>.<#= Name #>;
 
 <#
     foreach (var transitionData in Transitions)

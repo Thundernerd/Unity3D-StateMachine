@@ -1,6 +1,7 @@
 ﻿<#@ template language="C#" #>
 <#@ include file="Includes.ttinclude"#>
 using System;
+using BrunoMikoski.ScriptableObjectCollections;
 using TNRD.StateManagement.Contracts;
 using <#= Namespace #>.Contracts;
 
@@ -17,7 +18,7 @@ namespace <#= Namespace #>.Factories
         }
 
         /// <inheritdoc />
-        IState IStateFactory.Instantiate(Enum stateId, Type stateType)
+        IState IStateFactory.Instantiate(ScriptableObjectCollectionItem stateId, Type stateType)
         {
             return (IState)Activator.CreateInstance(stateType, new object[] { stateMachine });
         }

@@ -1,10 +1,11 @@
 ﻿using System;
+using BrunoMikoski.ScriptableObjectCollections;
 
 namespace TNRD.StateManagement.Contracts
 {
     public interface IStateFactory
     {
         void Initialize(IStateMachine stateMachine);
-        IState Instantiate(Enum stateId, Type stateType);
+        IState Instantiate(ScriptableObjectCollectionItem stateId, Type stateType);
     }
 }

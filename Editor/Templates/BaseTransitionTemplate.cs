@@ -18,7 +18,7 @@ namespace TNRD.StateManagement.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\BaseTransitionTemplate.tt"
+    #line 1 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\BaseTransitionTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
     public partial class BaseTransitionTemplate : BaseTransitionTemplateBase
     {
@@ -28,44 +28,44 @@ namespace TNRD.StateManagement.Templates
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("\r\nusing System;\r\nusing TNRD.StateManagement.Contracts;\r\nusing ");
+            this.Write("\r\nusing System;\r\nusing BrunoMikoski.ScriptableObjectCollections;\r\nusing TNRD.StateManagement.Contracts;\r\nusing ");
             
-            #line 5 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\BaseTransitionTemplate.tt"
+            #line 6 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\BaseTransitionTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write(".Contracts;\r\n\r\nnamespace ");
             
-            #line 7 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\BaseTransitionTemplate.tt"
+            #line 8 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\BaseTransitionTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write(".Base\r\n{\r\n    public abstract class ");
             
-            #line 9 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\BaseTransitionTemplate.tt"
+            #line 10 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\BaseTransitionTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(BaseTransitionName));
             
             #line default
             #line hidden
             this.Write(" : ITransition\r\n    {\r\n        protected ");
             
-            #line 11 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\BaseTransitionTemplate.tt"
+            #line 12 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\BaseTransitionTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(StateMachineInterfaceName));
             
             #line default
             #line hidden
-            this.Write(" StateMachine { get; private set; }\r\n        \r\n        /// <inheritdoc />\r\n        public abstract Enum TransitionId { get; }\r\n\r\n        /// <inheritdoc />\r\n        Enum IState.StateId => TransitionId;\r\n\r\n        protected ");
+            this.Write(" StateMachine { get; private set; }\r\n        \r\n        /// <inheritdoc />\r\n        public abstract ScriptableObjectCollectionItem TransitionId { get; }\r\n\r\n        /// <inheritdoc />\r\n        ScriptableObjectCollectionItem IState.StateId => TransitionId;\r\n\r\n        protected ");
             
-            #line 19 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\BaseTransitionTemplate.tt"
+            #line 20 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\BaseTransitionTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(BaseTransitionName));
             
             #line default
             #line hidden
             this.Write("(");
             
-            #line 19 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\BaseTransitionTemplate.tt"
+            #line 20 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\BaseTransitionTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(StateMachineInterfaceName));
             
             #line default
@@ -74,7 +74,7 @@ namespace TNRD.StateManagement.Templates
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 1 "E:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\BaseTransitionTemplate.tt"
+        #line 1 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\BaseTransitionTemplate.tt"
 
 private string _NamespaceField;
 

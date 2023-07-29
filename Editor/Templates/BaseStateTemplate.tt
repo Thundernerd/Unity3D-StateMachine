@@ -1,6 +1,7 @@
 ﻿<#@ template language="C#" #>
 <#@ include file="Includes.ttinclude"#>
 using System;
+using BrunoMikoski.ScriptableObjectCollections;
 using TNRD.StateManagement.Contracts;
 using UnityEngine;
 using <#= Namespace #>.Contracts;
@@ -12,7 +13,7 @@ namespace <#= Namespace #>.Base
         protected <#= StateMachineInterfaceName #> StateMachine { get; private set; }
         
         /// <inheritdoc />
-        public abstract Enum StateId { get; }
+        public abstract ScriptableObjectCollectionItem StateId { get; }
 
         protected <#= BaseStateName #>(<#= StateMachineInterfaceName #> stateMachine)
         {

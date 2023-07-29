@@ -1,6 +1,7 @@
 ﻿<#@ template language="C#" #>
 <#@ include file="Includes.ttinclude"#>
 using System;
+using BrunoMikoski.ScriptableObjectCollections;
 using TNRD.StateManagement.Contracts;
 using <#= Namespace #>.Contracts;
 
@@ -11,10 +12,10 @@ namespace <#= Namespace #>.Base
         protected <#= StateMachineInterfaceName #> StateMachine { get; private set; }
         
         /// <inheritdoc />
-        public abstract Enum TransitionId { get; }
+        public abstract ScriptableObjectCollectionItem TransitionId { get; }
 
         /// <inheritdoc />
-        Enum IState.StateId => TransitionId;
+        ScriptableObjectCollectionItem IState.StateId => TransitionId;
 
         protected <#= BaseTransitionName #>(<#= StateMachineInterfaceName #> stateMachine)
         {

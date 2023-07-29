@@ -18,9 +18,9 @@ namespace TNRD.StateManagement.Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\BaseStateTemplate.tt"
+    #line 1 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\StateIdCollectionItemTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
-    public partial class BaseStateTemplate : BaseStateTemplateBase
+    public partial class StateIdCollectionItemTemplate : StateIdCollectionItemTemplateBase
     {
 #line hidden
         /// <summary>
@@ -28,53 +28,25 @@ namespace TNRD.StateManagement.Templates
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("\r\nusing System;\r\nusing BrunoMikoski.ScriptableObjectCollections;\r\nusing TNRD.StateManagement.Contracts;\r\nusing UnityEngine;\r\nusing ");
+            this.Write("\r\n// AUTO-GENERATED\r\nusing BrunoMikoski.ScriptableObjectCollections;\r\n\r\nnamespace ");
             
-            #line 7 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\BaseStateTemplate.tt"
+            #line 6 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\StateIdCollectionItemTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
-            this.Write(".Contracts;\r\n\r\nnamespace ");
+            this.Write(".Ids\r\n{\r\n    public partial class ");
             
-            #line 9 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\BaseStateTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
-            
-            #line default
-            #line hidden
-            this.Write(".Base\r\n{\r\n    public abstract class ");
-            
-            #line 11 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\BaseStateTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(BaseStateName));
+            #line 8 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\StateIdCollectionItemTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(StateIdName));
             
             #line default
             #line hidden
-            this.Write(" : IState\r\n    {\r\n        protected ");
-            
-            #line 13 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\BaseStateTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(StateMachineInterfaceName));
-            
-            #line default
-            #line hidden
-            this.Write(" StateMachine { get; private set; }\r\n        \r\n        /// <inheritdoc />\r\n        public abstract ScriptableObjectCollectionItem StateId { get; }\r\n\r\n        protected ");
-            
-            #line 18 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\BaseStateTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(BaseStateName));
-            
-            #line default
-            #line hidden
-            this.Write("(");
-            
-            #line 18 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\BaseStateTemplate.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(StateMachineInterfaceName));
-            
-            #line default
-            #line hidden
-            this.Write(" stateMachine)\r\n        {\r\n            StateMachine = stateMachine;\r\n        }\r\n\r\n        /// <inheritdoc />\r\n        void IState.OnEnter()\r\n        {\r\n            try\r\n            {\r\n                OnEnter();\r\n            }\r\n            catch(Exception e)\r\n            {\r\n                Debug.LogError($\"Exception during OnEnter of State '{StateId}'\");\r\n                Debug.LogException(e);\r\n            }\r\n        }\r\n\r\n        /// <inheritdoc />\r\n        void IState.OnExit()\r\n        {\r\n            try\r\n            {\r\n                OnExit();\r\n            }\r\n            catch(Exception e)\r\n            {\r\n                Debug.LogError($\"Exception during OnExit of State '{StateId}'\");\r\n                Debug.LogException(e);\r\n            }\r\n        }\r\n\r\n        protected abstract void OnEnter();\r\n        protected abstract void OnExit();\r\n    }\r\n}\r\n");
+            this.Write(" : ScriptableObjectCollectionItem\r\n    {\r\n    }\r\n}\r\n");
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 1 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\BaseStateTemplate.tt"
+        #line 1 "D:\Repositories\Unity\StateMachine\Packages\Unity3D-StateMachine\Editor\Templates\StateIdCollectionItemTemplate.tt"
 
 private string _NamespaceField;
 
@@ -642,7 +614,7 @@ if ((TransitionsValueAcquired == false))
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "16.0.0.0")]
-    public class BaseStateTemplateBase
+    public class StateIdCollectionItemTemplateBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;

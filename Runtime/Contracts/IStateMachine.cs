@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using BrunoMikoski.ScriptableObjectCollections;
 
 namespace TNRD.StateManagement.Contracts
 {
@@ -8,8 +9,8 @@ namespace TNRD.StateManagement.Contracts
         IState CurrentState { get; }
         
         void Initialize();
-        void Transition(Enum transitionId);
-        void OnTransitionFinished(Enum transitionId);
+        void Transition(ScriptableObjectCollectionItem transitionId);
+        void OnTransitionFinished(ScriptableObjectCollectionItem transitionId);
 
         IEnumerable<PossibleTransition> GetPossibleTransitions();
     }

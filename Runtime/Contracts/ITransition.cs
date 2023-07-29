@@ -1,9 +1,9 @@
-﻿using System;
+﻿using BrunoMikoski.ScriptableObjectCollections;
 
 namespace TNRD.StateManagement.Contracts
 {
     public interface ITransition : IState
     {
-        Enum TransitionId { get; }
+        ScriptableObjectCollectionItem TransitionId { get; }
     }
 }

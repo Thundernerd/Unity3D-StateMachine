@@ -2,7 +2,7 @@
     "name": "TNRD.StateManagement",
     "rootNamespace": "TNRD.StateManagement",
     "references": [
-        "Zenject"
+        "BrunoMikoski.ScriptableObjectCollection"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

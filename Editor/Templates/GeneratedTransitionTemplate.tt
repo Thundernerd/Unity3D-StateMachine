@@ -3,7 +3,7 @@
 <#@ parameter name="Source" type="System.String"#>
 <#@ parameter name="Destination" type="System.String"#>
 // AUTO-GENERATED
-
+using BrunoMikoski.ScriptableObjectCollections;
 using <#= Namespace #>.Base;
 using <#= Namespace #>.Ids;
 using System;
@@ -13,6 +13,6 @@ namespace <#= Namespace #>.Transitions
     public partial class <#= Source #>To<#= Destination #>Transition : <#= BaseTransitionName #>
     {
         /// <inheritdoc />
-        public override Enum TransitionId => <#= TransitionIdName #>.<#= Source #>To<#= Destination #>;
+        public override ScriptableObjectCollectionItem TransitionId => <#= TransitionIdName #>.<#= Source #>To<#= Destination #>;
     }
 }
