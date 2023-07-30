@@ -1,3 +1,10 @@
+## [2.1.0](https://github.com/Thundernerd/Unity3D-StateMachine/compare/v2.0.0...v2.1.0) (2023-07-30)
+
+
+### Features
+
+* added configuration file generation ([d449f38](https://github.com/Thundernerd/Unity3D-StateMachine/commit/d449f38c186b0467aa14b99968c3abc57bca88f3))
+
 ## [2.0.0](https://github.com/Thundernerd/Unity3D-StateMachine/compare/v1.2.0...v2.0.0) (2023-07-29)
 
 
