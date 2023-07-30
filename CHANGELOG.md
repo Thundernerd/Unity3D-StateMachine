@@ -1,3 +1,10 @@
+## [2.1.2](https://github.com/Thundernerd/Unity3D-StateMachine/compare/v2.1.1...v2.1.2) (2023-07-30)
+
+
+### Bug Fixes
+
+* support for ScriptableObjectCollection v2.0.4 ([60c6549](https://github.com/Thundernerd/Unity3D-StateMachine/commit/60c6549013a8e86c2fb1bad029e07db2412c3818))
+
 ## [2.1.1](https://github.com/Thundernerd/Unity3D-StateMachine/compare/v2.1.0...v2.1.1) (2023-07-30)
 
 
