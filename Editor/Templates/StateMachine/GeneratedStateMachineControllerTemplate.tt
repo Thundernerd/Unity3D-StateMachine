@@ -1,0 +1,84 @@
+﻿<#@ template language="C#" #>
+<#@ include file="../Includes.ttinclude"#>
+// AUTO-GENERATED
+using <#= Namespace #>.Contracts;
+using <#= Namespace #>.Factories;
+using System.Collections.Generic;
+using TNRD.StateManagement;
+using TNRD.StateManagement.Contracts;
+using UnityEngine;
+
+namespace <#= Namespace #>.Utilities
+{
+    public sealed partial class <#= FullStateMachineName #>Controller : 
+        StateMachineController,
+        <#= UpdateProviderInterfaceName #>,
+        IStateMachineController
+    {
+        private readonly List<IUpdateReceiver> updateReceivers = new List<IUpdateReceiver>();
+        
+        protected override IStateMachine StateMachine => stateMachine;
+        
+        private <#= StateMachineInterfaceName #> stateMachine;
+        private <#= StateFactoryInterfaceName #> stateFactory;
+        private <#= TransitionFactoryInterfaceName #> transitionFactory;
+
+        private void Awake()
+        {
+            stateFactory = new <#= StateFactoryName #>();
+            transitionFactory = new <#= TransitionFactoryName #>();
+            stateMachine = new <#= FullStateMachineName #>(stateFactory, transitionFactory, this);
+
+            OnAwake();
+        }
+
+        private void Start()
+        {
+            stateMachine.Initialize();
+
+            OnStart();
+        }
+
+        /// <inheritdoc />
+        void IUpdateProvider.Register(IUpdateReceiver updateReceiver)
+        {
+            updateReceivers.Add(updateReceiver);
+        }
+
+        /// <inheritdoc />
+        void IUpdateProvider.Deregister(IUpdateReceiver updateReceiver)
+        {
+            updateReceivers.Remove(updateReceiver);
+        }
+
+        private void Update()
+        {
+            foreach (IUpdateReceiver updateReceiver in updateReceivers)
+            {
+                updateReceiver.Update();
+            }
+
+            OnUpdate();
+        }
+
+        private void FixedUpdate()
+        {
+            foreach (IUpdateReceiver updateReceiver in updateReceivers)
+            {
+                updateReceiver.FixedUpdate();
+            }
+
+            OnFixedUpdate();
+        }
+
+        private void LateUpdate()
+        {
+            foreach (IUpdateReceiver updateReceiver in updateReceivers)
+            {
+                updateReceiver.LateUpdate();
+            }
+
+            OnLateUpdate();
+        }
+    }
+}

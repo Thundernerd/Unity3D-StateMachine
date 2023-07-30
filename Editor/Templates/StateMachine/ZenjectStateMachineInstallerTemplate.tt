@@ -1,0 +1,39 @@
+﻿<#@ template language="C#" #>
+<#@ include file="../Includes.ttinclude"#>
+// AUTO-GENERATED
+using <#= Namespace #>.Factories;
+using <#= Namespace #>.Utilities;
+using UnityEngine;
+using Zenject;
+
+namespace <#= Namespace #>.Installers
+{
+    [CreateAssetMenu(
+        menuName = "State Machine Installers/<#= UnityEditor.ObjectNames.NicifyVariableName(FullStateMachineName) #>",
+        fileName = "<#= UnityEditor.ObjectNames.NicifyVariableName(FullStateMachineName) #> Installer")]
+    public sealed class <#= FullStateMachineName #>Installer : ScriptableObjectInstaller
+    {
+        /// <inheritdoc />
+        public sealed override void InstallBindings()
+        {
+            Container.BindInterfacesAndSelfTo<<#= FullStateMachineName #>>()
+                .AsSingle()
+                .NonLazy();
+
+            Container.Bind<<#= SubContainerManagerName #>>()
+                .AsSingle();
+
+            Container.BindInterfacesAndSelfTo<<#= FullStateMachineName #>Initializer>()
+                .AsSingle();
+
+            Container.BindInterfacesAndSelfTo<<#= UpdateProviderName #>>()
+                .AsSingle();
+
+            Container.BindInterfacesAndSelfTo<<#= StateFactoryName #>>()
+                .AsSingle();
+
+            Container.BindInterfacesAndSelfTo<<#= TransitionFactoryName #>>()
+                .AsSingle();
+        }
+    }
+}

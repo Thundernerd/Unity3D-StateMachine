@@ -1,0 +1,35 @@
+﻿<#@ template language="C#" #>
+<#@ include file="../Includes.ttinclude"#>
+<#@ parameter name="Name" type="System.String"#>
+// AUTO-GENERATED
+using BrunoMikoski.ScriptableObjectCollections;
+using <#= Namespace #>.Base;
+using <#= Namespace #>.Configurations;
+using <#= Namespace #>.Ids;
+using System;
+
+namespace <#= Namespace #>.States
+{
+    public partial class <#= Name #>State : <#= BaseStateName #>
+    {
+        /// <inheritdoc />
+        public sealed override ScriptableObjectCollectionItem StateId => <#= StateIdName #>.<#= Name #>;
+
+        public <#= Name #>StateConfiguration Configuration => Base<#= StateMachineName #>StateConfiguration.<#= Name #>StateConfiguration;
+
+<#
+    foreach (var transitionData in Transitions)
+    {
+        foreach (var destination in transitionData.Destinations)
+        {
+#>
+        private void TransitionTo<#= destination #>State()
+        {
+            StateMachine.Transition(<#= TransitionIdName #>.<#= Name #>To<#= destination #>);
+        }
+<#
+        }
+    }
+#>
+    } 
+}

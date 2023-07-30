@@ -1,0 +1,18 @@
+﻿<#@ template language="C#" #>
+<#@ include file="../Includes.ttinclude"#>
+// AUTO-GENERATED
+
+namespace <#= Namespace #>.Ids
+{
+    public enum <#= StateIdName #>
+    {
+<#
+    foreach (TNRD.StateManagement.StateMachineGraph.StateData state in States)
+    {
+#>
+        <#= state.Name #>,
+<#
+    }
+#>
+    }
+}

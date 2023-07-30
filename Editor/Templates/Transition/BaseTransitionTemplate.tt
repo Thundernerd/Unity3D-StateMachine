@@ -1,0 +1,43 @@
+﻿<#@ template language="C#" #>
+<#@ include file="../Includes.ttinclude"#>
+using System;
+using BrunoMikoski.ScriptableObjectCollections;
+using TNRD.StateManagement.Contracts;
+using <#= Namespace #>.Contracts;
+
+namespace <#= Namespace #>.Base
+{
+    public abstract class <#= BaseTransitionName #> : ITransition
+    {
+        protected <#= StateMachineInterfaceName #> StateMachine { get; private set; }
+        
+        /// <inheritdoc />
+        public abstract ScriptableObjectCollectionItem TransitionId { get; }
+
+        /// <inheritdoc />
+        ScriptableObjectCollectionItem IState.StateId => TransitionId;
+
+        protected <#= BaseTransitionName #>(<#= StateMachineInterfaceName #> stateMachine)
+        {
+            StateMachine = stateMachine;
+        }
+
+        /// <inheritdoc />
+        void IState.OnEnter()
+        {
+            StartTransition();
+        }
+
+        /// <inheritdoc />
+        void IState.OnExit()
+        {
+        }
+
+        protected abstract void StartTransition();
+
+        protected void FinishTransition()
+        {
+            StateMachine.OnTransitionFinished(TransitionId);
+        }
+    }
+}

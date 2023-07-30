@@ -1,0 +1,26 @@
+﻿<#@ template language="C#" #>
+<#@ include file="../Includes.ttinclude"#>
+using System;
+using BrunoMikoski.ScriptableObjectCollections;
+using TNRD.StateManagement.Contracts;
+using <#= Namespace #>.Contracts;
+
+namespace <#= Namespace #>.Factories
+{
+    public class <#= TransitionFactoryName #> : <#= TransitionFactoryInterfaceName #>
+    {
+        private IStateMachine stateMachine;
+
+        /// <inheritdoc />
+        void ITransitionFactory.Initialize(IStateMachine stateMachine)
+        {
+            this.stateMachine = stateMachine;
+        }
+
+        /// <inheritdoc />
+        ITransition ITransitionFactory.Instantiate(ScriptableObjectCollectionItem transitionId, Type transitionType)
+        {
+            return (ITransition)Activator.CreateInstance(transitionType, new object[] { stateMachine });
+        }
+    }
+}

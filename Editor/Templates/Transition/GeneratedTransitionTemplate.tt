@@ -1,0 +1,21 @@
+﻿<#@ template language="C#" #>
+<#@ include file="../Includes.ttinclude"#>
+<#@ parameter name="Source" type="System.String"#>
+<#@ parameter name="Destination" type="System.String"#>
+// AUTO-GENERATED
+using BrunoMikoski.ScriptableObjectCollections;
+using <#= Namespace #>.Base;
+using <#= Namespace #>.Configurations;
+using <#= Namespace #>.Ids;
+using System;
+
+namespace <#= Namespace #>.Transitions
+{
+    public partial class <#= Source #>To<#= Destination #>Transition : <#= BaseTransitionName #>
+    {
+        /// <inheritdoc />
+        public override ScriptableObjectCollectionItem TransitionId => <#= TransitionIdName #>.<#= Source #>To<#= Destination #>;
+
+        public <#= Source #>To<#= Destination #>TransitionConfiguration Configuration => Base<#= StateMachineName #>TransitionConfiguration.<#= Source #>To<#= Destination #>TransitionConfiguration;
+    }
+}

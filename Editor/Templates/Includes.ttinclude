@@ -21,3 +21,4 @@
 <#@ parameter name="UpdateProviderInterfaceName" type="System.String"#>
 <#@ parameter name="States" type="System.Collections.Generic.List<TNRD.StateManagement.StateMachineGraph.StateData>"#>
 <#@ parameter name="Transitions" type="System.Collections.Generic.List<TNRD.StateManagement.StateMachineGraph.TransitionData>"#>
+<#@ parameter name="Custom" type="System.String"#>
