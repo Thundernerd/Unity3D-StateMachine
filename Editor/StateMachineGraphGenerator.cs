@@ -836,12 +836,10 @@ namespace TNRD.StateManagement
                 if (!string.IsNullOrEmpty(serializedObject.FindProperty("generatedFileLocationPath").stringValue))
                     return;
 
-                if (!string.IsNullOrEmpty(ScriptableObjectCollectionSettings.GetInstance()
-                        .GeneratedScriptsDefaultFilePath))
+                if (!string.IsNullOrEmpty(SOCSettings.Instance.GeneratedScriptsDefaultFilePath))
                 {
                     serializedObject.FindProperty("generatedFileLocationPath").stringValue =
-                        ScriptableObjectCollectionSettings.GetInstance()
-                            .GeneratedScriptsDefaultFilePath;
+                        SOCSettings.Instance.GeneratedScriptsDefaultFilePath;
                 }
                 else
                 {
