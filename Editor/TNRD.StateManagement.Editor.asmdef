@@ -4,7 +4,7 @@
     "references": [
         "TNRD.StateManagement",
         "BrunoMikoski.ScriptableObjectCollection",
-        "BrunoMikoski.ScriptableObjectCollection.Editor",
+        "BrunoMikoski.ScriptableObjectCollection.Editor"
     ],
     "includePlatforms": [
         "Editor"
