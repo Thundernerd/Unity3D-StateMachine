@@ -1,0 +1,9 @@
+﻿<#@ template language="C#" #>
+<#@ include file="../Includes.ttinclude"#>
+namespace <#= Namespace #>.Configurations
+{
+    public partial class <#= Custom #>StateConfiguration
+    {
+    }
+}
+
