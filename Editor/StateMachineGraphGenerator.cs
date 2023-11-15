@@ -696,7 +696,7 @@ namespace TNRD.StateManagement
             {
                 GenerateAndSave<GeneratedStateTemplate>(
                     Path.Combine(Destination, "States", stateData.Name + "State.g.cs"),
-                    false,
+                    true,
                     new KeyValuePair<string, object>("Name", stateData.Name),
                     new KeyValuePair<string, object>("Transitions",
                         Transitions.Where(x => x.Source == stateData.Name).ToList()));
