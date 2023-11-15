@@ -1,3 +1,10 @@
+## [2.1.3](https://github.com/Thundernerd/Unity3D-StateMachine/compare/v2.1.2...v2.1.3) (2023-11-15)
+
+
+### Bug Fixes
+
+* overwrite generated state files ([59d7b4f](https://github.com/Thundernerd/Unity3D-StateMachine/commit/59d7b4fa40395856185db96634b75f1506f3c7ce))
+
 ## [2.1.2](https://github.com/Thundernerd/Unity3D-StateMachine/compare/v2.1.1...v2.1.2) (2023-07-30)
 
 
